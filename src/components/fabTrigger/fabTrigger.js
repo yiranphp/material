@@ -25,7 +25,7 @@
    * See the `<md-fab-speed-dial>` or `<md-fab-toolbar>` directives for example usage.
    */
   function MdFabTriggerDirective() {
-    // TODO: Remove this completely?
+    // todo(#8425): remove directive
     return {
       restrict: 'E',
 

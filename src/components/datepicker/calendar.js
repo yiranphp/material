@@ -14,17 +14,13 @@
 
 
   // POST RELEASE
-  // TODO(jelbourn): Mac Cmd + left / right == Home / End
-  // TODO(jelbourn): Clicking on the month label opens the month-picker.
-  // TODO(jelbourn): Minimum and maximum date
-  // TODO(jelbourn): Refactor month element creation to use cloneNode (performance).
-  // TODO(jelbourn): Define virtual scrolling constants (compactness) users can override.
-  // TODO(jelbourn): Animated month transition on ng-model change (virtual-repeat)
-  // TODO(jelbourn): Scroll snapping (virtual repeat)
-  // TODO(jelbourn): Remove superfluous row from short months (virtual-repeat)
-  // TODO(jelbourn): Month headers stick to top when scrolling.
-  // TODO(jelbourn): Previous month opacity is lowered when partially scrolled out of view.
-  // TODO(jelbourn): Support md-calendar standalone on a page (as a tabstop w/ aria-live
+  // todo(#8428): hotkeys for home and end
+  // todo(#4251): md-datepicker should have option to select year and month
+  // todo(#8429): refactor month element creation to use cloneNode
+  // todo(#8455): virtual repeat enhancements
+  // todo(jelbourn): Month headers stick to top when scrolling.
+  // todo(jelbourn): Previous month opacity is lowered when partially scrolled out of view.
+  // todo(jelbourn): Support md-calendar standalone on a page (as a tabstop w/ aria-live
   //     announcement and key handling).
   // Read-only calendar (not just date-picker).
 

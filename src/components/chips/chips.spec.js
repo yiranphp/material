@@ -115,14 +115,14 @@ describe('<md-chips>', function() {
         expect(chips[1].innerHTML).toContain('Orange');
       });
 
-      // TODO: Remove in 1.0 release after deprecation
+      // todo(#8426): remove deprecated md-on-append functionality
       it('should warn of deprecation when using md-on-append', inject(function($log) {
         spyOn($log, 'warn');
         buildChips(CHIP_APPEND_TEMPLATE);
         expect($log.warn).toHaveBeenCalled();
       }));
 
-      // TODO: Remove in 1.0 release after deprecation
+      // todo(#8426): remove deprecated md-on-append functionality
       it('should retain the deprecated md-on-append functionality until removed', function() {
         var element = buildChips(CHIP_APPEND_TEMPLATE);
         var ctrl = element.controller('mdChips');

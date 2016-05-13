@@ -113,8 +113,7 @@ function UtilFactory($document, $timeout, $compile, $rootScope, $$mdAnimate, $in
 
     /**
      * Calculate the positive scroll offset
-     * TODO: Check with pinch-zoom in IE/Chrome;
-     *       https://code.google.com/p/chromium/issues/detail?id=496285
+     * todo(#8427): check scrollTop with pinch-zoom in IE/Chrome
      */
     scrollTop: function(element) {
       element = angular.element(element || $document[0].body);

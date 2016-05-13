@@ -2,14 +2,9 @@
   'use strict';
 
   // POST RELEASE
-  // TODO(jelbourn): Demo that uses moment.js
-  // TODO(jelbourn): make sure this plays well with validation and ngMessages.
-  // TODO(jelbourn): calendar pane doesn't open up outside of visible viewport.
-  // TODO(jelbourn): forward more attributes to the internal input (required, autofocus, etc.)
-  // TODO(jelbourn): something better for mobile (calendar panel takes up entire screen?)
-  // TODO(jelbourn): input behavior (masking? auto-complete?)
-  // TODO(jelbourn): UTC mode
-  // TODO(jelbourn): RTL
+  // todo(#8447): forward more attributes to the internal input
+  // todo(#8448): UTC mode
+  // todo(#8449): RTL
 
 
   angular.module('material.components.datepicker')
@@ -296,7 +291,7 @@
     });
 
     self.ngInputElement.on('input', angular.bind(self, self.resizeInputElement));
-    // TODO(chenmike): Add ability for users to specify this interval.
+    // todo(#8450): add input debounce interval option
     self.ngInputElement.on('input', self.$mdUtil.debounce(self.handleInputEvent,
         DEFAULT_DEBOUNCE_INTERVAL, self));
   };
@@ -395,9 +390,7 @@
       this.ngModelCtrl.$setValidity('valid', date == null);
     }
 
-    // TODO(jelbourn): Change this to classList.toggle when we stop using PhantomJS in unit tests
-    // because it doesn't conform to the DOMTokenList spec.
-    // See https://github.com/ariya/phantomjs/issues/12782.
+    // todo(#8451): change classList.add to classList.toggle
     if (!this.ngModelCtrl.$valid) {
       this.inputContainer.classList.add(INVALID_CLASS);
     }
@@ -618,7 +611,7 @@
    */
   DatePickerCtrl.prototype.handleBodyClick = function(event) {
     if (this.isCalendarOpen) {
-      // TODO(jelbourn): way want to also include the md-datepicker itself in this check.
+      // todo(#8452): add `md-datepicker` to bodyClick
       var isInCalendar = this.$mdUtil.getClosest(event.target, 'md-calendar');
       if (!isInCalendar) {
         this.closeCalendarPane();

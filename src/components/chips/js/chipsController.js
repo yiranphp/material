@@ -302,7 +302,7 @@ MdChipsCtrl.prototype.appendChip = function(newChip) {
  *
  * @deprecated
  *
- * TODO: Remove deprecated md-on-append functionality in 1.0
+ * todo(#8426): remove deprecated md-on-append functionality
  */
 MdChipsCtrl.prototype.useOnAppendExpression = function() {
   this.$log.warn("md-on-append is deprecated; please use md-transform-chip or md-on-add instead");
