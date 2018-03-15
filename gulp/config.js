@@ -49,7 +49,23 @@ module.exports = {
   cssIEPaths : ['src/**/ie_fixes.css'],
   paths: 'src/+(components|core)/**',
   outputDir: 'dist/',
-  demoFolder: 'demo-partials'
+  demoFolder: 'demo-partials',
+  // build源码修改
+  newbiModules: [
+      'backdrop',
+      'button',
+      'checkbox',
+      'content',
+      'dialog',
+      'icon',
+      'progressCircular',
+      'radioButton',
+      'switch',
+      'tabs',
+      'toast',
+      'slider'
+  ]
+  // end-build源码修改
 };
 
 

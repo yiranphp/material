@@ -29,6 +29,9 @@ var ROOT = constants.ROOT;
 var utils = require('../scripts/gulp-utils.js');
 
 exports.buildJs = buildJs;
+// build源码修改
+exports.buildCustomJs = buildCustomJs;
+// end-build源码修改
 exports.autoprefix = autoprefix;
 exports.buildModule = buildModule;
 exports.filterNonCodeFiles = filterNonCodeFiles;
@@ -72,6 +75,42 @@ function buildJs () {
         .pipe(gulp.dest(config.outputDir));
   }
 }
+// build源码修改
+// 根据配置中的自定义模块
+function buildCustomJs () {
+  var jsFiles = config.jsBaseFiles.concat(config.newbiModules.map(function (module) {
+    return 'src/components/' + module + '/*.js';
+  })).concat(config.newbiModules.map(function (module) {
+    return 'src/components/' + module + '/js/*.js';
+  }));
+  gutil.log("building js files...");
+
+  var jsBuildStream = gulp.src( jsFiles )
+      .pipe(filterNonCodeFiles())
+      .pipe(utils.buildNgMaterialDefinition())
+      .pipe(plumber())
+      .pipe(ngAnnotate())
+      .pipe(utils.addJsWrapper(true));
+
+  var jsProcess = series(jsBuildStream, themeBuildStream() )
+      .pipe(concat('angular-material.js'))
+      .pipe(BUILD_MODE.transform())
+      .pipe(insert.prepend(config.banner))
+      .pipe(insert.append(';window.ngMaterial={version:{full: "' + VERSION +'"}};'))
+      .pipe(gulp.dest(config.outputDir))
+      .pipe(gulpif(!IS_DEV, uglify({ preserveComments: 'some' })))
+      .pipe(rename({ extname: '.min.js' }))
+      .pipe(gulp.dest(config.outputDir));
+
+  return series(jsProcess, deployMaterialMocks());
+
+  // Deploy the `angular-material-mocks.js` file to the `dist` directory
+  function deployMaterialMocks() {
+    return gulp.src(config.mockFiles)
+        .pipe(gulp.dest(config.outputDir));
+  }
+}
+// end-build源码修改
 
 function autoprefix () {
 
