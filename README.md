@@ -99,9 +99,13 @@ Then run the **gulp** tasks:
 # To build `angular-material.js/.css` and `Theme` files in the `/dist` directory
 gulp build
 
+# 由于全部的模块打包后的js文件太大，所以在newBI项目中仅仅打包使用到的模块（模块的配置在 gulp/config.js > newbiModules），使用下面的命令
+gulp build-newbi
+
 # To build the Angular Material Docs and Demos in `/dist/docs` directory
 gulp docs
 ```
+
 
 For more details on how the build process works and additional commands (available for testing and
 debugging) developers should read the [Build Instructions](docs/guides/BUILD.md).
